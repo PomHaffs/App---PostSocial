@@ -36,6 +36,7 @@
 		FE5C5C7D1DECFBAD00C6F0D0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE5C5C7F1DECFDEB00C6F0D0 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldShadow.swift; sourceTree = "<group>"; };
+		FEE3CEC61DED178800FEF005 /* PostSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PostSocial.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 		FE5C5C601DECE64200C6F0D0 /* PostSocial */ = {
 			isa = PBXGroup;
 			children = (
+				FEE3CEC61DED178800FEF005 /* PostSocial.entitlements */,
 				FE5C5C7C1DECFB9300C6F0D0 /* Util */,
 				FE5C5C771DECEAF200C6F0D0 /* Model */,
 				FE5C5C761DECEAE900C6F0D0 /* View */,
@@ -172,6 +174,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 37N4597A88;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -391,6 +398,7 @@
 			baseConfigurationReference = 0D213E82E5D4AFA4589C3622 /* Pods-PostSocial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PostSocial/PostSocial.entitlements;
 				DEVELOPMENT_TEAM = 37N4597A88;
 				INFOPLIST_FILE = PostSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -405,6 +413,7 @@
 			baseConfigurationReference = B171F1FE509539A85E9B9C0F /* Pods-PostSocial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PostSocial/PostSocial.entitlements;
 				DEVELOPMENT_TEAM = 37N4597A88;
 				INFOPLIST_FILE = PostSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
