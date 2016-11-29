@@ -10,17 +10,20 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
 
+//You CANNOT perform segue in view did load...its too early...
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            performSegue(withIdentifier: SEGUE_FEED, sender: nil)
+        }
     }
 
     
@@ -53,12 +56,16 @@ class SignInVC: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
                 if error == nil {
                     print("TOM: User email login authenticated")
+                    if let user = user {
+                     self.completeSignin(id: user.uid)
+                    }
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
                         if error != nil {
                             print("TOM: Unable to authenticate with email")
                         } else {
                             print("TOM - Successfully authenticated with email")
+                            self.completeSignin(id: user!.uid)
                         }
                     })
                 }
@@ -75,10 +82,21 @@ class SignInVC: UIViewController {
                 print("\(error)")
             } else {
                 print("TOM: Successfully authenticated with Firebase")
-                
+                if let user = user {
+                     self.completeSignin(id: user.uid)
+                }
             }
         })
     }
 
+//Good code because this would appear in more than one place - Contants.swift
+//NOTE passing in an 'id' is required
+    func completeSignin(id: String) {
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("TOM: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: SEGUE_FEED, sender: nil)
+    }
+    
+    
 }
 
