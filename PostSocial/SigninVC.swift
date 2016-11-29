@@ -24,7 +24,7 @@ class SignInVC: UIViewController {
     }
 
     
-//1. Authenticate with FB
+//Authenticate with FB - REMEMBER to decrypt the fucking secret!
     @IBAction func facebookButtonPressed(_ sender: Any) {
         
         let facebookLogin = FBSDKLoginManager()
@@ -41,6 +41,30 @@ class SignInVC: UIViewController {
                 self.firebaseAuth(credential)
             }
         }
+    }
+    
+//NOTE: outlet means to take out some information...thats it!
+    @IBOutlet weak var emailField: FieldShadow!    
+    @IBOutlet weak var passwordField: FieldShadow!
+    
+//Authenticate with email/password - always do AlreadyUser stuff first THEN NewUser and errors
+    @IBAction func signinButtonPressed(_ sender: Any) {
+        if let email = emailField.text, let pwd = passwordField.text {
+            FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
+                if error == nil {
+                    print("TOM: User email login authenticated")
+                } else {
+                    FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
+                        if error != nil {
+                            print("TOM: Unable to authenticate with email")
+                        } else {
+                            print("TOM - Successfully authenticated with email")
+                        }
+                    })
+                }
+            })
+        }
+        
     }
     
 //Generic sign in for multiple use
