@@ -14,6 +14,10 @@
 		FE5C5C691DECE64200C6F0D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE5C5C681DECE64200C6F0D0 /* Assets.xcassets */; };
 		FE5C5C6C1DECE64200C6F0D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5C5C6A1DECE64200C6F0D0 /* LaunchScreen.storyboard */; };
 		FE5C5C741DECE7BD00C6F0D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE5C5C731DECE7BD00C6F0D0 /* GoogleService-Info.plist */; };
+		FE5C5C7B1DECFB0D00C6F0D0 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5C5C7A1DECFB0D00C6F0D0 /* ShadowView.swift */; };
+		FE5C5C7E1DECFBAD00C6F0D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5C5C7D1DECFBAD00C6F0D0 /* Constants.swift */; };
+		FE5C5C801DECFDEB00C6F0D0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5C5C7F1DECFDEB00C6F0D0 /* RoundedButton.swift */; };
+		FE5C5C821DED004500C6F0D0 /* FieldShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		FE5C5C6B1DECE64200C6F0D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE5C5C6D1DECE64200C6F0D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE5C5C731DECE7BD00C6F0D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE5C5C7A1DECFB0D00C6F0D0 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		FE5C5C7D1DECFBAD00C6F0D0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FE5C5C7F1DECFDEB00C6F0D0 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldShadow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 		FE5C5C601DECE64200C6F0D0 /* PostSocial */ = {
 			isa = PBXGroup;
 			children = (
+				FE5C5C7C1DECFB9300C6F0D0 /* Util */,
 				FE5C5C771DECEAF200C6F0D0 /* Model */,
 				FE5C5C761DECEAE900C6F0D0 /* View */,
 				FE5C5C751DECEAE100C6F0D0 /* Controller */,
@@ -104,6 +113,9 @@
 		FE5C5C761DECEAE900C6F0D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE5C5C7A1DECFB0D00C6F0D0 /* ShadowView.swift */,
+				FE5C5C7F1DECFDEB00C6F0D0 /* RoundedButton.swift */,
+				FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -113,6 +125,14 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		FE5C5C7C1DECFB9300C6F0D0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FE5C5C7D1DECFBAD00C6F0D0 /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +260,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5C5C821DED004500C6F0D0 /* FieldShadow.swift in Sources */,
+				FE5C5C7B1DECFB0D00C6F0D0 /* ShadowView.swift in Sources */,
+				FE5C5C801DECFDEB00C6F0D0 /* RoundedButton.swift in Sources */,
 				FE5C5C641DECE64200C6F0D0 /* SigninVC.swift in Sources */,
 				FE5C5C621DECE64200C6F0D0 /* AppDelegate.swift in Sources */,
+				FE5C5C7E1DECFBAD00C6F0D0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
