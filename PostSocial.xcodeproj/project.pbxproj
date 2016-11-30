@@ -20,6 +20,7 @@
 		FE5C5C821DED004500C6F0D0 /* FieldShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */; };
 		FE6155471DED38E200BDDBE0 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6155461DED38E200BDDBE0 /* FeedVC.swift */; };
 		FE6155491DEE76A000BDDBE0 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6155481DEE76A000BDDBE0 /* RoundedImageView.swift */; };
+		FE61554B1DEE82E100BDDBE0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE61554A1DEE82E100BDDBE0 /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldShadow.swift; sourceTree = "<group>"; };
 		FE6155461DED38E200BDDBE0 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		FE6155481DEE76A000BDDBE0 /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		FE61554A1DEE82E100BDDBE0 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		FEE3CEC61DED178800FEF005 /* PostSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PostSocial.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				FE6155481DEE76A000BDDBE0 /* RoundedImageView.swift */,
 				FE5C5C7F1DECFDEB00C6F0D0 /* RoundedButton.swift */,
 				FE5C5C811DED004500C6F0D0 /* FieldShadow.swift */,
+				FE61554A1DEE82E100BDDBE0 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				FE6155471DED38E200BDDBE0 /* FeedVC.swift in Sources */,
 				FE5C5C7B1DECFB0D00C6F0D0 /* ShadowView.swift in Sources */,
 				FE5C5C801DECFDEB00C6F0D0 /* RoundedButton.swift in Sources */,
+				FE61554B1DEE82E100BDDBE0 /* PostCell.swift in Sources */,
 				FE5C5C641DECE64200C6F0D0 /* SigninVC.swift in Sources */,
 				FE5C5C621DECE64200C6F0D0 /* AppDelegate.swift in Sources */,
 				FE5C5C7E1DECFBAD00C6F0D0 /* Constants.swift in Sources */,
