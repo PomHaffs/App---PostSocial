@@ -22,8 +22,7 @@ class RoundedButton: UIButton {
 //need this for image changes
         imageView?.contentMode = .scaleAspectFit
 
-//removed because doesnt loook good
-//layer.cornerRadius = 10.0
+        layer.cornerRadius = 5.0
     }
     
     
