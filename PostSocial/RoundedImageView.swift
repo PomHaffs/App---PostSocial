@@ -18,6 +18,7 @@ class RoundedImageView: UIImageView {
         layer.shadowRadius = 8.0
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         layer.cornerRadius = 5.0
+        clipsToBounds = true
         
     }
     
