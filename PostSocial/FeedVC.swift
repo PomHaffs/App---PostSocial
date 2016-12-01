@@ -101,9 +101,30 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         present(imagePicker, animated: true, completion: nil)
     }
  
+                                //POSTING LOGIC
     
+    @IBOutlet weak var captionField: FieldShadow!
     
-    //take us back to signin screen, sign out
+    @IBAction func postButtonPressed(_ sender: Any) {
+        //guard let mean func run if statment is NOT true
+        guard let caption = captionField.text, caption != "" else {
+           print("TOM: Caption must be entered")
+            return
+        }
+        guard let img = imageAdd.image else {
+            print("TOM: Image must be selected")
+            return
+        }
+        //this converts to JPEG and compresses img
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            //creates uid for image
+            let imageUid = NSUUID().uuidString
+            
+            DataService.ds.REF_POST_IMAGES.child(imageUid)
+        }
+    }
+    
+    //take us back to signin screen = sign out button
     @IBAction func signOutPressed(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.remove(key: KEY_UID)
         print("TOM: successful sign out - \(keychainResult)")
