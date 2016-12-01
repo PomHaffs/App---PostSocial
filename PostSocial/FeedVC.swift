@@ -15,6 +15,9 @@ import Firebase
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+
+//Takes class created in PostModel and passes them into array
+    var posts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +25,21 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-//LISTENER for POSTS
+//LISTENER for POSTS - loops
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-          print(snapshot.value!)
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postId: key, postData: postDict)
+                        self.posts.append(post)
+                    }
+                }
+            }
+            //NOTE!!! this is needed for 
+            self.tableView.reloadData()
         })
-        
     }
  
 //NEEDED for tableview
@@ -35,10 +48,14 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let post = posts[indexPath.row]
+        print("TOM: \(post.caption)")
+        
         return tableView.dequeueReusableCell(withIdentifier: "PostCell")! 
     }
     
