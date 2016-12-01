@@ -35,10 +35,11 @@ class DataService {
         return _REF_USERS
     }
 
-//This is the set up to the DB
+                        //NEW USER SETUP
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
-                            //NEW USER SETUP
 //If new data = create, if data already there = update
+//setValue = wipes ALL data and replaces
+        
         REF_USERS.child(uid).updateChildValues(userData)
         
     }

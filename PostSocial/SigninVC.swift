@@ -57,7 +57,8 @@ class SignInVC: UIViewController {
                 if error == nil {
                     print("TOM: User email login authenticated")
                     if let user = user {
-                     self.completeSignin(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                     self.completeSignin(id: user.uid, userData: userData)
                     }
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
@@ -65,7 +66,10 @@ class SignInVC: UIViewController {
                             print("TOM: Unable to authenticate with email")
                         } else {
                             print("TOM - Successfully authenticated with email")
-                            self.completeSignin(id: user!.uid)
+                            if let user = user {
+                                let userData = ["provider": user.providerID]
+                                self.completeSignin(id: user.uid, userData: userData)
+                            }
                         }
                     })
                 }
@@ -74,7 +78,7 @@ class SignInVC: UIViewController {
         
     }
     
-//Generic sign in for multiple use
+//Generic sign in for multiple use AND create newUser
     func firebaseAuth(_ credential: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
@@ -83,15 +87,17 @@ class SignInVC: UIViewController {
             } else {
                 print("TOM: Successfully authenticated with Firebase")
                 if let user = user {
-                     self.completeSignin(id: user.uid)
+                    let userData = ["provider": credential.provider]
+                     self.completeSignin(id: user.uid, userData: userData)
                 }
             }
         })
     }
 
-//Good code because this would appear in more than one place - Contants.swift
+    // KEY_UID is in Contants.swift
 //NOTE passing in an 'id' is required
-    func completeSignin(id: String) {
+    func completeSignin(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("TOM: Data saved to keychain \(keychainResult)")
         performSegue(withIdentifier: SEGUE_FEED, sender: nil)
