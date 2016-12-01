@@ -132,10 +132,34 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 } else {
                     print("TOM: Successsfully loaded image to Firebase storage")
                     let downloadURL = metadata?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                        self.postToFirebase(imageUrl: url)
+                    }
                 }
             }
         }
     }
+    
+                            //POSTING TO FIREBASE
+    func postToFirebase(imageUrl: String) {
+        let post: Dictionary<String, AnyObject> = [
+            "Caption": captionField.text! as AnyObject,
+            "ImageURL": imageUrl as AnyObject,
+            "Likes": 0 as AnyObject
+        ]
+        //auto creates a UID so we can post
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionField.text = ""
+        imageSelected = false
+        //resets image to button image
+        imageAdd.image = UIImage(named: "add-image")
+        
+        //to reload stuff to app
+        tableView.reloadData()
+    }
+    
     
     //take us back to signin screen = sign out button
     @IBAction func signOutPressed(_ sender: Any) {
