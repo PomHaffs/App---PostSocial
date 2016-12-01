@@ -14,15 +14,22 @@ import FirebaseDatabase
 //This will contain url of our DB for global ref - this comes from google .plist file
 let DB_BASE = FIRDatabase.database().reference()
 
+//This sets up local storage cache
+let STORAGE_BASE = FIRStorage.storage().reference()
+
 
 class DataService {
     
 //This is singleton statement
     static let ds = DataService()
     
+    //DB references
     private var _REF_BASE = DB_BASE
     private var _REF_POSTS = DB_BASE.child("Posts")
     private var _REF_USERS = DB_BASE.child("Users")
+    
+    //Storage Rerference
+    private var _REF_POST_IMAGES = STORAGE_BASE.child("PostPics")
  
 //GOOD coding for all private var's
     var REF_BASE: FIRDatabaseReference {
@@ -33,6 +40,9 @@ class DataService {
     }
     var REF_USERS: FIRDatabaseReference {
         return _REF_USERS
+    }
+    var REF_POT_IMAGES: FIRStorageReference {
+        return _REF_POST_IMAGES
     }
 
                         //NEW USER-ID SETUP

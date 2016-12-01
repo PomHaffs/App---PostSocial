@@ -22,6 +22,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     //Imagepicker
     var imagePicker: UIImagePickerController!
     
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         })
     }
  
-    //NEEDED for tableview
+    //NEEDED for tableview x 3
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -64,10 +66,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
-        print("TOM: \(post.caption)")
         
-        return tableView.dequeueReusableCell(withIdentifier: "PostCell")! 
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
+                cell.configureCell(post: post, img: img)
+                return cell
+            } else {
+                cell.configureCell(post: post, img: nil)
+                return cell
+            }
+            
+        } else {
+            return PostCell()
+        }
     }
+    
     
                                 //IMAGE ADDING LOGIC
 
