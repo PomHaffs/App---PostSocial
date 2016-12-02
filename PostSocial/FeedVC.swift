@@ -76,8 +76,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 return cell
             } else {
                 cell.configureCell(post: post, img: nil)
-                return cell
             }
+            return cell
             
         } else {
             return PostCell()
