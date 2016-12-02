@@ -14,3 +14,7 @@
 - Firebase/Storage
 - Firebase/Database
 
+##Things I have learnt in this project
+- Firebase email authentication
+- Facebook authentication
+
