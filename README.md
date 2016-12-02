@@ -25,3 +25,9 @@
 - Parsing Data with Firebase
 - Firebase Storage for Image/Video 
 
+##Potential Developments
+- Put posts in order of date
+- Add extra authentication from GitHub, Google and Twitter
+- Add username to posts
+- Add profile picture to username
+- Add mutliple comments to same image
