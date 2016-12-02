@@ -16,8 +16,11 @@
 - SwiftKeychainWrapper - https://github.com/jrendel/SwiftKeychainWrapper
 
 ##Things I have learnt in this project
+- Databse creation with Firebase - posting and retriving information 
+- Database relasionship management with Firebase
 - Firebase email authentication
 - Facebook authentication
 - Auto-signin with Keychain 
-- 
+- TableView/TabelViewCells
+- Parsing Data with Firebase
 
