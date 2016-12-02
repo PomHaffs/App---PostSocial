@@ -168,7 +168,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         try! FIRAuth.auth()?.signOut()
         performSegue(withIdentifier: "goToHome", sender: nil)
         
-        
     }
     
     

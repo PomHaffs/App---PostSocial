@@ -16,6 +16,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var likesButton: UILabel!
+    @IBOutlet weak var likeImage: UIImageView!
     
     var post: Post!
     
@@ -49,6 +50,16 @@ class PostCell: UITableViewCell {
                     }
             })
         }
+        //this will ref like and observe a SINGLE event, NSNull refers to firebase empty value
+        let likesRef = DataService.ds.REF_USER_CURRENT.child("Likes")
+        likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.likeImage.image = UIImage(named: "empty-heart")
+            } else {
+                self.likeImage.image = UIImage(named: "filled-heart")
+            }
+        })
+        
     }
     
 }
