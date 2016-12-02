@@ -13,8 +13,11 @@
 - Firebase/Auth
 - Firebase/Storage
 - Firebase/Database
+- SwiftKeychainWrapper - https://github.com/jrendel/SwiftKeychainWrapper
 
 ##Things I have learnt in this project
 - Firebase email authentication
 - Facebook authentication
+- Auto-signin with Keychain 
+- 
 
