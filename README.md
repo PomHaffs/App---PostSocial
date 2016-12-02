@@ -2,7 +2,7 @@
  
  
 ##Description
-- PostSocial App - Full stack application with authentication and ability to blog with images, text and rating
+- PostSocial App - Full stack application with authentication and ability to post with images with comments and ratings
 
 ##API
 - Firebase
@@ -23,4 +23,5 @@
 - Auto-signin with Keychain 
 - TableView/TabelViewCells
 - Parsing Data with Firebase
+- Firebase Storage for Image/Video 
 
