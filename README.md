@@ -30,4 +30,4 @@
 - Add extra authentication from GitHub, Google and Twitter
 - Add username to posts
 - Add profile picture to username
-- Add mutliple comments to same image
+- Add mutliple comments to same image.
